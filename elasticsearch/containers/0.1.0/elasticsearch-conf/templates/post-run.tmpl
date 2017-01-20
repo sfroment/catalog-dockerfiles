@@ -1,0 +1,15 @@
+#!/bin/bash
+#datanodei Placed by confd. Do not hand edit.
+
+while [ "$(curl -sm5 $HOSTNAME:9200 >/dev/null; echo $?)" == 7 ]; do echo "WAITING 2" && sleep 0.1; done
+
+{{if exists "/self/service/metadata/post-run/sh/kibana"}}
+curl -XPUT -u elastic:changeme "$HOSTNAME:9200/_xpack/security/user/kibana/_password" -d '{
+  "password" : "{{getv "/self/service/metadata/post-run/sh/kibana"}}"
+}'
+{{end}}
+{{if exists "/self/service/metadata/post-run/sh/elasticsearch"}}
+curl -XPUT -u elastic:changeme "$HOSTNAME:9200/_xpack/security/user/elastic/_password" -d '{
+  "password" : "{{getv "/self/service/metadata/post-run/sh/elasticsearch"}}"
+}'
+{{end}}

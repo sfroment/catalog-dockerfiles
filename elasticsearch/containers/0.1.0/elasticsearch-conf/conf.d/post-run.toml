@@ -1,0 +1,8 @@
+[template]
+src = "post-run.tmpl"
+dest = "/opt/rancher/bin/post-run.sh"
+mode = "0111"
+keys = [
+  "/self/service",
+  "/containers",
+]

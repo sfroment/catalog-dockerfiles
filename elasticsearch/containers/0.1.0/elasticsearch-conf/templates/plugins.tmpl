@@ -1,0 +1,3 @@
+{{if exists "/elasticsearch/plugins"}}{{range $dir := ls "/elasticsearch/plugins"}}{{getv (printf "%s/%s" "/elasticsearch/plugins" $dir)}}
+{{end}}{{end}}
+x-pack
