@@ -1,0 +1,7 @@
+[template]
+src = "kibana.tmpl"
+dest = "/usr/share/kibana/config/kibana.yml"
+keys = [
+  "/self/service",
+  "/containers",
+]

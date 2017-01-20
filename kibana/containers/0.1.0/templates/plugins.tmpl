@@ -1,0 +1,3 @@
+{{if exists "/kibana/plugins"}}{{range $dir := ls "/kibana/plugins"}}{{getv (printf "%s/%s" "/kibana/plugins" $dir)}}
+{{end}}{{end}}
+x-pack
